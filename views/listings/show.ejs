@@ -5,6 +5,30 @@
   window.LISTING_LOCATION = "<%= listing.location %>, <%= listing.country %>";
 </script>
 
+<style>
+  .show-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 576px) {
+    .card-body, .form-control, .list-group-item {
+      font-size: 0.95rem;
+    }
+
+    h2, h3, h1 {
+      font-size: 1.4rem;
+    }
+
+    .starability-grow label {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<body>
 <div class="container mt-2">
 
   <!-- Listing Display Section -->
@@ -113,30 +137,9 @@
   </div>
 
 </div>
+</body>
 
 <script src="/js/map.js"></script>
 
-<style>
-  .show-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  @media (max-width: 576px) {
-    .card-body, .form-control, .list-group-item {
-      font-size: 0.95rem;
-    }
-
-    h2, h3, h1 {
-      font-size: 1.4rem;
-    }
-
-    .starability-grow label {
-      font-size: 1rem;
-    }
-  }
-</style>
 
 
