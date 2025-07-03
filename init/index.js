@@ -1,18 +1,37 @@
-const mongoose=require("mongoose");
-const Listing=require("../models/listing.js");
-const initData=require("./data.js")
+require("dotenv").config();  // ⬅️ This must be before any use of process.env
+console.log("ATLAS_KEY:", process.env.ATLAS_KEY);  // Debug print
 
-main()
-    .then(res=> console.log("Connection established successfully"))
-    .catch(err => console.log(err));
+const mongoose = require("mongoose");
+const Listing = require("../models/listing.js");
+const initData = require("./data.js");
 
+const dbURL = process.env.ATLAS_KEY;
+
+if (!dbURL) {
+  console.error("❌ Error: ATLAS_KEY is undefined. Check your .env file.");
+  process.exit(1);
+}
+
+// Database Connection
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-}
-const initDB=async ()=>{
+  try {
+    await mongoose.connect(dbURL);
+    console.log("✅ MongoDB connection established");
+
+    // Initialize DB
     await Listing.deleteMany({});
-    initData.data=initData.data.map((obj)=>({...obj,owner:'6862837e86feaacb479aa39f'}));
+    initData.data = initData.data.map((obj) => ({
+      ...obj,
+      owner: "6862837e86feaacb479aa39f",
+    }));
     await Listing.insertMany(initData.data);
+    console.log("✅ Database seeded with initial data");
+    
+    process.exit(0); // Exit successfully
+  } catch (err) {
+    console.error("❌ MongoDB connection failed:", err);
+    process.exit(1); // Exit with error
+  }
 }
 
-initDB();
+main();
