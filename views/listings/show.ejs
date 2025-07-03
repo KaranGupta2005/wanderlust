@@ -31,7 +31,6 @@
 <body>
 <div class="container mt-2">
 
-  <!-- Listing Display Section -->
   <div class="row">
     <div class="col-12 col-md-10 col-lg-8 mx-auto">
       <h2 class="my-3 fw-bold"><%= listing.title %></h2>
@@ -61,7 +60,6 @@
     </div>
   </div>
 
-  <!-- Review Form Section -->
   <% if(curr) { %>
   <div class="row">
     <div class="col-12 col-md-10 col-lg-8 mx-auto">
@@ -91,7 +89,6 @@
   </div>
   <% } %>
 
-  <!-- All Reviews Section -->
   <% if (listing.reviews.length > 0) { %>
   <div class="row">
     <div class="col-12 col-md-10 col-lg-8 mx-auto">
@@ -122,22 +119,20 @@
   </div>
   <% } %>
 
-  <!-- Map Section -->
   <div class="row">
-    <div class="col-12 col-md-10 col-lg-8 mx-auto mb-3">
-      <hr>
-      <h1 class="display-6 fw-bold my-3">Where You'll Be</h1>
-      <div
-        id="map"
-        data-mapkey="<%= process.env.MAP_API_KEY %>"
-        data-location="<%= listing.location %>, <%= listing.country %>"
-        style="height: 400px; border: 2px solid black; border-radius: 10px;">
-      </div>
+  <div class="col-12 col-md-10 col-lg-8 mx-auto mb-3">
+    <hr>
+    <h1 class="display-6 fw-bold my-3 text-center text-md-start">Where You'll Be</h1>
+
+    <div
+      id="map"
+      data-mapkey="<%= process.env.MAP_API_KEY %>"
+      data-location="<%= listing.location %>, <%= listing.country %>"
+      class="w-100"
+      style="height: 300px; border: 1.5px solid black; border-radius: 12px;">
     </div>
   </div>
-
 </div>
-</body>
 
 <script src="/js/map.js"></script>
 
