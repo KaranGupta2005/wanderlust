@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom sticky-top">
+  <a class="navbar-brand fs-4" href="/">
+    <i class="fa-regular fa-compass"></i>
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    
+    <div class="navbar-nav">
+      <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/">Home</a>
+      <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/listings">Explore</a>
+    </div>
+
+    <div class="navbar-nav flex-grow-1 justify-content-center">
+      <%- include("../includes/search.ejs") %>
+    </div>
+
+    <div class="navbar-nav ms-auto">
+      <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/listings/new">Start Hosting</a> 
+      
+      <% if (!curr) { %>
+        <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/signup">Sign Up</a>
+        <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/login">Login</a>
+      <% } else { %>
+        <a class="nav-item nav-link fw-bold fs-5 mx-2" href="/logout">Logout</a>
+      <% } %>
+    </div>
+
+  </div>
+</nav>
+

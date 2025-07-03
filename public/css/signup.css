@@ -1,0 +1,126 @@
+.body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #fdf6f0, #fff9f3, #fef3e7);
+  background-size: 200% 200%;
+  animation: gradientShift 20s ease infinite;
+  position: relative;
+}
+
+.background-image::before,
+.background-image::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.background-image::before {
+  width: 350px;
+  height: 350px;
+  background: #f5d7bf;
+  top: -100px;
+  left: -120px;
+}
+
+.background-image::after {
+  width: 300px;
+  height: 300px;
+  background: #f7caca;
+  bottom: -120px;
+  right: -100px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1;
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #f0d9c8;
+  background-color: #fff9f3;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input:focus {
+  border-color: #f5b9a0;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(245, 185, 160, 0.4);
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background-color: #f5b9a0;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(245, 185, 160, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f08e74;
+}
+
+.login-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  text-decoration: underline;
+}

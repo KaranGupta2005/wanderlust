@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+<div class="row">
+<div class="alert alert-danger col-8 offset-2 mt-3" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <h4 class="alert-heading fw-bold">ERROR!</h4>
+  <p class="mb-0">Status Code: <%=status%></p>
+  <hr>
+  <p class="fw-bold"><%=message%></p>
+</div>
+</div>
+
+</body>

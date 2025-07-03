@@ -1,0 +1,85 @@
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGF6UNPjzvDSyXx92sJ7NEPi082n0V-gOUzm0a7VkLLzhM-0iANZKJv1TmdCZnZ_vS0s_mRarzkJHMd_u9C0C1Fr8H4dp7JniBZzmXsjWv2pf650e8brMgVKwwDDammiw4waI1ptDtENwdNYLip1OeeIHrtowjjvScmU02Tkq7uPmFTTasH0P4L4vHtkmiCnZWHUEzDylebDcp0lh-zzKW3h6mGts8sl8sMcGpVW5T0PwTaaDGDiPIbmhySPXEzgI6gH_jgMRlIss");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+.pastel-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  animation: floatUpDown 16s ease-in-out infinite alternate;
+  opacity: 0.45;
+}
+
+.circle1 {
+  width: 300px;
+  height: 300px;
+  background-color: #ff8fa3;
+  top: 5%;
+  left: -60px;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  width: 360px;
+  height: 360px;
+  background-color: #90e0f3;
+  bottom: 5%;
+  right: -80px;
+  animation-delay: 2s;
+}
+
+.circle3 {
+  width: 280px;
+  height: 280px;
+  background-color: #c4b5fd;
+  top: 45%;
+  left: 60%;
+  animation-delay: 4s;
+}
+
+.circle4 {
+  width: 320px;
+  height: 320px;
+  background-color: #ffd6a5;
+  top: 30%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+.circle5 {
+  width: 300px;
+  height: 300px;
+  background-color: #b9fbc0;
+  bottom: 15%;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+.circle6 {
+  width: 240px;
+  height: 240px;
+  background-color: #a0c4ff;
+  top: 65%;
+  right: 5%;
+  animation-delay: 5s;
+}

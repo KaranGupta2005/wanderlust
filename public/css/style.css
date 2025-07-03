@@ -1,0 +1,274 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif  !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container{
+    flex:1;
+    z-index: 10;
+}
+/* Home page */
+.home-container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(124, 123, 123);
+    color: aliceblue;
+    width: 100%;
+    border-radius: 2rem;
+    z-index: 1900;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.home-card::before,
+.home-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    background-image: conic-gradient(from var(--angle), #FF006E, #FFBE0B, #3A86FF, #FF006E);
+    z-index: -1;
+}
+
+.home-card::before {
+    filter: blur(2rem);
+    animation: spin 6s linear infinite;
+}
+
+.home-card::after {
+    animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-card h1 {
+        font-size: 2rem;
+    }
+
+    .home-card h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* .navbar */
+.navbar{
+    height: 4rem;
+    background-color: white !important;
+    
+}
+.nav-item{
+    font-size: 1.5rem !important;
+}
+.navbar-nav a{
+border-radius: 3rem !important;
+padding: 1rem 2rem !important;
+transition: all 0.3s ease-in !important;
+}
+.navbar-nav a:hover{
+    background-color: rgb(181, 179, 179);
+    
+}
+.fa-compass{
+    margin-left: 1rem;
+    font-size: 2.5rem;
+    color:#FF5A5F;
+}
+.f-info{
+    height: 6rem;
+    background-color: rgb(168, 168, 168);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.f-info-social , .f-info-links, .f-info-brand{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+}
+.f-info-social i{
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    margin-right: 1rem;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+
+}
+/* slider */
+#filters {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.filter-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: scrollLoop 40s linear infinite;
+}
+
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Keep your existing styles */
+.filter {
+  flex: 0 0 auto;
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.taxSwitch {
+  height: fit-content;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  border: 0.2rem solid black !important;
+  border-radius: 1rem !important;
+  padding: 1rem !important;
+  margin-right: 2rem;
+  background-color: white;
+}
+
+.taxSwitch:hover {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 10px grey;
+  background-color: #aec6ed;
+  border: 0.2rem solid rgb(17, 17, 213) !important;
+}
+
+/* search bar */
+#search{
+    border-radius: 4rem !important;
+    animation: all 0.3s ease !important;
+    width: 40vw !important;
+}
+#search:hover{
+    background-color: rgb(239, 237, 237) !important;
+}
+
+/* Card Effects */
+
+.listing-links{
+    text-decoration: none;
+}
+.card{
+    margin:0 1rem 2rem !important;
+    border: none !important; 
+}
+.show-card{
+    transition: all 0.3s ease-in-out !important;
+}
+.show-card:hover{
+    transform: translateY(-1.5rem) scale(1.04); 
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); 
+}
+.card-img-top{
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 4% !important;
+    transform: all 0.5s ease-in !important;
+}
+
+.card-body p{
+    margin-left: 0.3rem !important;
+    font-weight: 400 !important;
+    transition: all 0.2s linear ;
+    
+}
+.card-body p:hover{
+    font-weight: 600 !important;
+    text-decoration: underline;
+}
+.card-img-overlay{
+    opacity: 0;
+    border:none !important;
+    object-fit: cover !important;
+    transition: all 0.3s ease;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: #8e8a8a;
+}
+.card-img-overlay-text{
+    width: 35%;
+    font-size: 800;
+    background-color: rgb(155, 159, 159);
+    color: white;
+    border-radius: 2rem;
+    padding: 0.3rem 0.6rem;
+    margin: 1rem;
+}
+
+/*New Listing */
+.add-btn{
+    border: none !important;
+    background-color: #FF5A5F !important;
+}
+
+/* Show Listing */
+.show-img{
+    height: 40vh !important;
+    background-size: cover;
+}
+.show-text{
+    padding: 0;
+}
+.show-btn{
+    border: none !important;
+}
+
+/* map styling */
+#map {
+    width: 40vw;
+    height: 30vh;
+}
+
