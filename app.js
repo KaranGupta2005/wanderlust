@@ -30,7 +30,7 @@ main()
   .then(() => console.log(" MongoDB connection established"))
   .catch((err) => console.error(" MongoDB connection failed:", err));
 
-app.set("view engine", "es");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 app.engine("ejs", ejsMate);
 
@@ -103,7 +103,8 @@ app.use((err, req, res, next) => {
   res.status(status).render("listings/error.ejs", { status, message });
 });
 
-app.listen(8080, () => {
-  console.log("Server running on port 8080");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
