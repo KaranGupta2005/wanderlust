@@ -1,4 +1,4 @@
-require("dotenv").config();  
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 const Listing = require("../models/listing.js");
@@ -11,25 +11,31 @@ if (!dbURL) {
   process.exit(1);
 }
 
-// Database Connection
 async function main() {
   try {
     await mongoose.connect(dbURL);
     console.log("✅ MongoDB connection established");
 
-    // Initialize DB
     await Listing.deleteMany({});
-    initData.data = initData.data.map((obj) => ({
+    console.log("✅ Cleared existing listings");
+
+    const listings = initData.data.map((obj) => ({
       ...obj,
-      owner: "6862837e86feaacb479aa39f",
+      image: {
+        url: obj.image.url,
+        filename: obj.image.filename || "listingimage"
+      }
     }));
-    await Listing.insertMany(initData.data);
-    console.log("✅ Database seeded with initial data");
+
+    await Listing.insertMany(listings);
+    console.log(`✅ Database seeded with ${listings.length} listings`);
     
-    process.exit(0); // Exit successfully
+    await mongoose.connection.close();
+    console.log("✅ Database connection closed");
+    process.exit(0);
   } catch (err) {
-    console.error("❌ MongoDB connection failed:", err);
-    process.exit(1); // Exit with error
+    console.error("❌ Error:", err);
+    process.exit(1);
   }
 }
 
