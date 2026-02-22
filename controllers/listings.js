@@ -71,7 +71,7 @@ module.exports.updateListing = async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
 
-  if (!listing.owner._id.equals(res.locals.curr._id)) {
+  if (listing.owner && !listing.owner._id.equals(res.locals.curr._id)) {
     req.flash("error", "You are not authenticated to do this operation!");
     return res.redirect(`/listings/${id}`);
   }
@@ -93,7 +93,7 @@ module.exports.destroyListing = async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
 
-  if (!listing.owner.equals(req.user._id)) {
+  if (listing.owner && !listing.owner.equals(req.user._id)) {
     req.flash("error", "Not authorized to delete this listing");
     return res.redirect(`/listings/${id}`);
   }

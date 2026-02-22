@@ -48,12 +48,14 @@
           </ul>
 
           <div class="d-flex justify-content-center flex-wrap gap-2">
+            <% if (curr && listing.owner && listing.owner._id.equals(curr._id)) { %>
             <form method="GET" action="/listings/<%= listing._id %>/edit">
               <button class="btn btn-dark">Edit</button>
             </form>
             <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
               <button class="btn btn-danger">Delete</button>
             </form>
+            <% } %>
           </div>
         </div>
       </div>
