@@ -15,7 +15,8 @@ module.exports.searchListing = async (req, res) => {
 
   const listings = await Listing.find({ title: { $regex: place, $options: "i" } });
 
-  if (listings.length === 0) {
+  if (listings.length === 0) 
+    {
     req.flash("error", "Listing not found!");
     return res.redirect("/listings");
   }

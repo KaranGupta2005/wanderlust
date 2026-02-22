@@ -30,16 +30,16 @@ main()
   .then(() => console.log(" MongoDB connection established"))
   .catch((err) => console.error(" MongoDB connection failed:", err));
 
-app.set("view engine", "ejs");
+app.set("view engine", "es");
 app.set("views", path.join(__dirname, "/views"));
 app.engine("ejs", ejsMate);
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));  
 
-app.use((req, res, next) => {
+app.use((req, res, next) => { //for logging the request path
   console.log("➡️ Incoming request to:", req.path);
   next();
 });
